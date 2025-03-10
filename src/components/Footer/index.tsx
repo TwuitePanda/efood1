@@ -1,23 +1,23 @@
-import { Text } from '../Header/styles'
-import Logo from '../../assets/images/logo.png'
-import Rectangle from '../../assets/images/Rectangle 2.png'
-import redesSociais from '../../assets/images/redes sociais.png'
-import { Logotipo, Message, RedesSociais, Rodape } from './styles'
+import logo from '../../assets/logo.png'
+import facebook from '../../assets/facebook-round-svgrepo-com 1.png'
+import instagram from '../../assets/instagram-round-svgrepo-com (1) 1.png'
+import twitter from '../../assets/twitter-2-svgrepo-com 1.png'
+import { FooterStyle, Branding, SocialMedia, Disclaimer } from './styles'
 
 const Footer = () => (
-  <Rodape style={{ backgroundImage: `url(${Rectangle})` }}>
-    <Text>
-      <Logotipo src={Logo} alt="Logotipo" />
-      <RedesSociais>
-        <img src={redesSociais} alt="redes sociais" />
-      </RedesSociais>
-      <Message>
-        A efood é uma plataforma para divulgação de estabelecimentos, a
-        responsabilidade pela entrega, qualidade dos produtos é toda do
-        estabelecimento contratado.
-      </Message>
-    </Text>
-  </Rodape>
+  <FooterStyle>
+    <Branding src={logo} alt="Logo do efood" />
+    <SocialMedia>
+      <img src={facebook} alt="" />
+      <img src={instagram} alt="" />
+      <img src={twitter} alt="" />
+    </SocialMedia>
+    <Disclaimer>
+      A efood é uma plataforma para divulgação de estabelecimentos, a
+      responsabilidade pela entrega, qualidade dos produtos é toda do
+      estabelecimento contratado.
+    </Disclaimer>
+  </FooterStyle>
 )
 
 export default Footer

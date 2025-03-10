@@ -23,7 +23,7 @@ export const List = styled.ul`
   }
   @media (max-width: ${breakpoints.mobile}) {
     grid-template-columns: 1fr;
-    margin: 40px;
-    row-gap: 20px;
+    margin: 0 10px;
+    row-gap: 10px;
   }
 `

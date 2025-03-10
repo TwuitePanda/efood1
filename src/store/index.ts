@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit'
-import cartReducer from '../store/reducers/cart'
 import api from '../services/api'
+import cartReducer from './reducers/cart'
 
-const store = configureStore({
+export const store = configureStore({
   reducer: {
     cart: cartReducer,
     [api.reducerPath]: api.reducer
@@ -12,4 +12,3 @@ const store = configureStore({
 })
 
 export type RootReducer = ReturnType<typeof store.getState>
-export default store

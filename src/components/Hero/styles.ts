@@ -1,80 +1,25 @@
 import styled from 'styled-components'
-import { Colors, breakpoints } from '../../styles'
+import banner from '../../assets/fundoHero.png'
 
 export const HeroContainer = styled.div`
   width: 100%;
-  height: 280px;
-  position: relative;
-  background-color: rgba(0, 0, 0, 0.5);
-  margin-top: 162px;
-
-  @media (max-width: ${breakpoints.tablet}) {
-    height: 240px;
-    margin-top: 120px;
-  }
-
-  @media (max-width: ${breakpoints.mobile}) {
-    height: 200px;
-    margin-top: 100px;
-  }
-`
-
-export const HeroBackground = styled.div`
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-size: cover;
-  background-position: center;
-  z-index: -1;
-`
-
-export const HeroContent = styled.div`
-  max-width: 1024px;
-  margin: 0 auto;
-  padding: 25px 16px;
-  height: 100%;
+  height: 360px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
-  @media (max-width: ${breakpoints.desktop}) {
-    max-width: 90%;
-    padding: 20px 16px;
-  }
-
-  @media (max-width: ${breakpoints.mobile}) {
-    padding: 16px;
-  }
+  align-items: center;
+  background-image: url(${banner});
 `
 
-export const RestaurantType = styled.h2`
-  font-size: 32px;
-  font-weight: 100;
-  color: ${Colors.white};
-  margin: 0;
-
-  @media (max-width: ${breakpoints.tablet}) {
-    font-size: 28px;
-  }
-
-  @media (max-width: ${breakpoints.mobile}) {
-    font-size: 24px;
-  }
+export const Branding = styled.img`
+  width: 125px;
+  height: 57.5px;
+  margin-top: 40px;
 `
-
-export const RestaurantName = styled.h1`
-  font-size: 32px;
-  font-weight: 900;
-  color: ${Colors.white};
-  margin: 0;
-
-  @media (max-width: ${breakpoints.tablet}) {
-    font-size: 28px;
-  }
-
-  @media (max-width: ${breakpoints.mobile}) {
-    font-size: 24px;
-  }
+export const Slogan = styled.h4`
+  font-weight: bold;
+  font-size: 36px;
+  max-width: 539px;
+  text-align: center;
+  margin-bottom: 40px;
 `

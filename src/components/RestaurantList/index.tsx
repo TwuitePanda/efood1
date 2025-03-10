@@ -15,7 +15,7 @@ const ProductList = ({ restaurants, isLoading }: Props) => {
     return <Loader />
   }
   return (
-    <Container className="container">
+    <Container>
       <List>
         {restaurants.map((restaurants) => (
           <Product

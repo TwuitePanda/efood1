@@ -65,13 +65,6 @@ export const Sidebar = styled.aside`
   max-width: 360px;
   width: 100%;
   position: relative;
-
-  .empty-text {
-    font-size: 14px;
-    line-height: 22px;
-    color: ${cores.branco};
-    text-align: center;
-  }
   @media (max-width: ${breakpoints.tablet}) {
     max-width: 220px;
   }
@@ -118,7 +111,8 @@ export const InfosCart = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 40px 0 16px 0;
-  color: ${cores.fundoClaro};
+  color: ${cores.palhaClara};
+  weight: 700;
   font-size: 14px;
 `
 export const CartStage = styled.div`

@@ -1,29 +1,27 @@
 import styled from 'styled-components'
-import { cores } from '../../styled'
+import { cores } from '../../styles'
 
-export const Rodape = styled.div`
-  width: 100%;
+export const FooterStyle = styled.footer`
+  background-color: ${cores.rosa};
+  text-align: center;
   height: 298px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+`
+export const Branding = styled.img`
+  width: 125px;
+  height: 57.5px;
+  margin-top: 40px;
 `
 
-export const Logotipo = styled.img`
-  padding: 40px;
-  max-width: 200px;
+export const SocialMedia = styled.div`
+  margin-top: 32.5px;
+  img {
+    margin-right: 8px;
+  }
 `
-
-export const RedesSociais = styled.div`
-  display: flex;
-  justify-content: center;
-`
-
-export const Message = styled.p`
-  justify-content: center;
-  margin-top: 80px;
-  padding-bottom: 40px;
+export const Disclaimer = styled.p`
+  margin: 80px auto;
+  max-width: 480px;
+  width: 100%;
   font-size: 10px;
-  align-items: center;
-  color: ${cores.rosa};
+  font-weight: regular;
 `
