@@ -1,17 +1,16 @@
 import * as S from './styles'
+import LogoImg from '../../assets/images/logo.png'
+import bannerImg from '../../assets/images/banner.png'
 
-export type Props = {
-  restaurant: Restaurant
-}
-const Banner = ({ restaurant }: Props) => {
-  return (
-    <S.Container style={{ backgroundImage: `url(${restaurant.capa})` }}>
-      <div className="container">
-        <S.Tipo>{restaurant.tipo}</S.Tipo>
-        <S.Titulo>{restaurant.titulo}</S.Titulo>
-      </div>
-    </S.Container>
-  )
-}
+const Banner = () => (
+  <S.Container>
+    <S.Imagem style={{ backgroundImage: `url(${bannerImg})` }}>
+      <S.Logo src={LogoImg} alt="efood" />
+      <S.Titulo>
+        Viva experiências gastronômicas no conforto da sua casa
+      </S.Titulo>
+    </S.Imagem>
+  </S.Container>
+)
 
 export default Banner

@@ -1,90 +1,62 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { MenuItem } from '../../models/Menu'
 
 type CartState = {
-  items: Restaurant[]
-  pedido: Pedido[]
+  items: MenuItem[]
   isOpen: boolean
-  isAddress: boolean
-  isPayment: boolean
-  isConfirmed: boolean
-  isCart: boolean
+  isCheckoutOpen: boolean
 }
 
 const initialState: CartState = {
   items: [],
   isOpen: false,
-  isAddress: false,
-  isPayment: false,
-  isConfirmed: false,
-  isCart: true,
-  pedido: []
+  isCheckoutOpen: false
 }
 
 const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    addItem: (state, action: PayloadAction<Pedido>) => {
-      const p = state.pedido.find((pe) => pe.id === action.payload.id)
-      if (!p) {
-        state.pedido.push(action.payload)
-      } else {
-        alert('Pedido já está no carrinho')
-      }
+    addItem: (state, action: PayloadAction<MenuItem>) => {
+      state.items.push(action.payload)
     },
     removeItem: (state, action: PayloadAction<number>) => {
-      state.pedido = state.pedido.filter((p) => p.id !== action.payload)
+      state.items = state.items.filter((item) => item.id !== action.payload)
     },
-    open: (state) => {
+    closeCart: (state) => {
+      state.isOpen = false
+      state.isCheckoutOpen = false
+    },
+    openCart: (state) => {
       state.isOpen = true
+      state.isCheckoutOpen = false
     },
-    close: (state) => {
-      state.isOpen = false
+    openCheckout: (state) => {
+      state.isOpen = true
+      state.isCheckoutOpen = true
     },
-    closeAndFinish: (state) => {
-      state.isOpen = false
-      state.isCart = true
-      state.isConfirmed = false
-      state.isAddress = false
-      state.isPayment = false
-      state.pedido = []
-    },
-    startCheckout: (state) => {
-      state.isCart = false
-      state.isConfirmed = false
-      state.isAddress = true
-      state.isPayment = false
-    },
-    payment: (state) => {
-      state.isConfirmed = false
-      state.isAddress = false
-      state.isPayment = true
-      state.isCart = false
-    },
-    confirmed: (state) => {
-      state.isConfirmed = true
-      state.isAddress = false
-      state.isPayment = false
-      state.isCart = false
-    },
-    backtoCart: (state) => {
-      state.isAddress = false
-      state.isPayment = false
-      state.isConfirmed = false
-      state.isCart = true
+    clear: (state) => {
+      state.items = []
     }
+  },
+  extraReducers: (builder) => {
+    // Handle the clearCart action if it's still being used elsewhere
+    builder.addCase('cart/clearCart', (state) => {
+      state.items = []
+    })
   }
 })
 
-export const {
-  open,
-  close,
-  addItem,
-  removeItem,
-  startCheckout,
-  payment,
-  confirmed,
-  backtoCart,
-  closeAndFinish
-} = cartSlice.actions
+export const { addItem, removeItem, closeCart, openCart, openCheckout, clear } =
+  cartSlice.actions
+
+export const getTotalPrice = (items: MenuItem[]) => {
+  return items
+    .reduce((total, item) => total + parseFloat(item.preco.toString()), 0)
+    .toFixed(2)
+}
+
+// Keep this export for backward compatibility
+export const clearCart = { type: 'cart/clearCart' }
+
 export default cartSlice.reducer

@@ -1,29 +1,57 @@
 import { createGlobalStyle } from 'styled-components'
 
-export const cores = {
-  vermelho: '#E66767',
-  rosa: '#FFEBD9',
-  branco: '#FFFFFF',
-  amarelo: '#FFB930',
-  fundoClaro: '#FFF8F2'
+export const Colors = {
+  white: '#FFFFFF',
+  black: '#111',
+  gray: '#ffebd9',
+  lightGray: '#A3A3A3',
+  mainPink: '#E66767',
+  lightPink: '#FFEBD9',
+  green: '#10AC84',
+  background: '#FFF8F2',
+  warning: '#FFEBD9',
+  headerBackground: 'rgba(230, 103, 103, 0.05)'
 }
 
 export const breakpoints = {
-  desktop: '1024px',
-  tablet: '821px',
-  mobile: '430px'
-}
-export const GlobalCSS = createGlobalStyle`
-*{
-  margin: 0;
-  padding:0;
-  box-sizing: border-box;
-  font-family: Roboto, sans-serif;
-  list-style: none;
+  mobile: '480px',
+  tablet: '768px',
+  desktop: '1024px'
 }
 
-body{
-  background-color: ${cores.fundoClaro};
-  color: ${cores.vermelho};
-}
-`
+export const GlobalCss = createGlobalStyle`
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Roboto', sans-serif;
+        list-style: none;
+    }
+
+    body {
+        background-color: ${Colors.black};
+        color: ${Colors.white};
+        overflow-x: hidden;
+        width: 100%;
+    }
+
+    html {
+        overflow-x: hidden;
+    }
+
+    .container {
+      max-width: ${breakpoints.desktop};
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 16px;
+      
+      @media (max-width: ${breakpoints.desktop}) {
+        max-width: 90%;
+        padding: 0;
+      }
+      
+      @media (max-width: ${breakpoints.tablet}) {
+        max-width: 95%;
+      }
+    }
+  `

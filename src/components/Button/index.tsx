@@ -1,19 +1,40 @@
-import { BotaoContainer } from './styles'
+import * as S from './styles'
 
-export type Props = {
-  type?: 'link' | 'tag'
-  title?: string
+type Props = {
+  type: 'button' | 'link'
+  title: string
   to?: string
-  children: string
   onClick?: () => void
+  children: string
+  variant?: 'primary' | 'secondary'
 }
 
-const Botao = ({ to, children, type = 'tag' }: Props) => {
+const Button = ({
+  type,
+  title,
+  to,
+  onClick,
+  children,
+  variant = 'secondary'
+}: Props) => {
+  if (type === 'button') {
+    return (
+      <S.ButtonContainer
+        type="button"
+        title={title}
+        onClick={onClick}
+        variant={variant}
+      >
+        {children}
+      </S.ButtonContainer>
+    )
+  }
+
   return (
-    <BotaoContainer type={type} to={to as string}>
+    <S.ButtonLink to={to as string} title={title}>
       {children}
-    </BotaoContainer>
+    </S.ButtonLink>
   )
 }
 
-export default Botao
+export default Button

@@ -1,48 +1,113 @@
 import styled from 'styled-components'
-import { breakpoints, cores } from '../../styles'
-import { Link } from 'react-router-dom'
+import { Colors } from '../../styles'
+import { TagContainer } from '../Tag/styles'
+
+import star from '../../assets/images/estrela.png'
 
 export const Card = styled.div`
-  background-color: ${cores.vermelho};
-  color: ${cores.fundoClaro};
-  max-width: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  padding: 8px;
-`
+  background-color: ${Colors.white};
+  border: 1px solid ${Colors.mainPink};
+  border-radius: 2px;
+  position: relative;
 
-export const Photo = styled.img`
-  // max-width: 304px;
-  max-height: 167px;
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-
-  @media (max-width: ${breakpoints.tablet}) {
-    object-fit: fill;
+  ${TagContainer} {
+    margin-right: 8px;
+    background-color: ${Colors.mainPink};
+    color: ${Colors.white};
+    font-size: 12px;
   }
 `
 
-export const Title = styled.h3`
-  font-size: 16px;
-  font-weight: 900;
-  margin: 8px 0;
+export const ImageContainer = styled.div`
+  position: relative;
+  width: 100%;
+  height: 217px;
+  overflow: hidden;
+
+  > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+    transition: opacity 0.3s ease;
+  }
 `
 
-export const Description = styled.p`
+export const LoaderWrapper = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
+
+export const ErrorPlaceholder = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(230, 103, 103, 0.1);
+  color: ${Colors.mainPink};
   font-size: 14px;
-  margin-bottom: 8px;
-`
-
-export const AddCartButton = styled(Link)`
-  background-color: ${cores.rosa};
-  color: ${cores.vermelho};
-  border: none;
-  padding: 4px 7px;
-
-  font-weight: 700;
-  text-decoration: none;
   text-align: center;
+  padding: 0 8px;
+
+  span {
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 4px 8px;
+    border-radius: 4px;
+  }
+`
+
+export const Titulo = styled.h3`
+  font-weight: bold;
+  font-size: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 8px 8px;
+  color: ${Colors.mainPink};
+
+  span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    &::before {
+      content: '';
+      background-image: url(${star});
+      background-size: cover;
+      width: 21px;
+      height: 21px;
+      display: inline-block;
+      margin-right: 8px;
+    }
+  }
+`
+
+export const Descricao = styled.p`
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 400;
   font-size: 14px;
+  line-height: 22px;
+  color: ${Colors.mainPink};
+  margin: 8px 8px;
+  height: 88px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+`
+
+export const Infos = styled.div`
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  gap: 8px;
 `

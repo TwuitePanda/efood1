@@ -1,32 +1,38 @@
-import logo from '../../assets/logo.png'
-import { HeaderStyle } from './styles'
-import { Branding, LinkRestaurantes, TextCart } from './styles'
-import { open } from '../../store/reducers/cart'
+import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import voltar from '../../assets/de-volta.png'
-import { RootReducer } from '../../store'
+
+import { RootState } from '../../store'
+import { openCart } from '../../store/reducers/cart'
+import logo from '../../assets/images/logo.svg'
+import * as S from './styles'
 
 const Header = () => {
+  const { items } = useSelector((state: RootState) => state.cart)
   const dispatch = useDispatch()
-  const { pedido } = useSelector((state: RootReducer) => state.cart)
-  const openCart = () => {
-    dispatch(open())
+
+  const handleCartClick = (e: React.MouseEvent) => {
+    e.preventDefault()
+    dispatch(openCart())
   }
+
   return (
-    <HeaderStyle>
-      <div className="container">
-        <LinkRestaurantes href="/">
-          <img src={voltar} alt="voltar para a pagina do restaurante" />
-          Restaurantes
-        </LinkRestaurantes>
-        <Branding href="/">
-          <img src={logo} alt="Logo do restaurante" />
-        </Branding>
-        <TextCart onClick={openCart}>
-          {pedido.length} produto(s) no carrinho
-        </TextCart>
-      </div>
-    </HeaderStyle>
+    <S.HeaderBar>
+      <S.HeaderContent>
+        <S.Links>
+          <S.LinkItem>
+            <Link to="/">Restaurantes</Link>
+          </S.LinkItem>
+        </S.Links>
+        <S.LogoContainer>
+          <Link to="/">
+            <img className="logo" src={logo} alt="Logo" />
+          </Link>
+        </S.LogoContainer>
+        <S.LinkCart href="#" onClick={handleCartClick}>
+          {items.length} produto(s) no carrinho
+        </S.LinkCart>
+      </S.HeaderContent>
+    </S.HeaderBar>
   )
 }
 

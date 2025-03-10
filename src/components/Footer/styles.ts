@@ -1,34 +1,58 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { Colors } from '../../styles'
 
 export const Container = styled.footer`
-  background-color: ${cores.rosa};
-  text-align: center;
+  background-color: ${Colors.lightPink};
   height: 298px;
-`
-export const Logo = styled.img`
-  width: 125px;
-  height: 57.5px;
-  margin-top: 40px;
+  padding: 40px 0;
+  position: relative;
 `
 
-export const Links = styled.div`
-  margin-top: 32.5px;
+export const Logo = styled.div`
+  width: 125px;
+  height: 57.5px;
+  margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
+
   img {
-    margin-right: 8px;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
   }
 `
-export const Link = styled.a`
-  margin-right: 8px;
-  cursor: pointer;
+
+export const SocialLinks = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 32.5px 0 80px;
 `
-export const Section = styled.p`
-  margin: 80px auto;
-  max-width: 480px;
-  width: 100%;
+
+export const SocialIcon = styled.a`
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: ${Colors.mainPink};
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+`
+
+export const FooterText = styled.p`
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
   font-size: 10px;
-  font-weight: regular;
+  line-height: 12px;
+  text-align: center;
+  color: ${Colors.mainPink};
+  max-width: 480px;
+  margin: 0 auto;
 `

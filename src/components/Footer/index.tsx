@@ -1,34 +1,35 @@
-import logo from '../../assets/logo.png'
-import facebook from '../../assets/facebook.png'
-import instagram from '../../assets/instagram.png'
-import twitter from '../../assets/twitter.png'
 import * as S from './styles'
+import logo from '../../assets/images/logo.svg'
+import instagram from '../../assets/images/instagram.png'
+import facebook from '../../assets/images/facebook.png'
+import twitter from '../../assets/images/twitter.png'
+import { Link } from 'react-router-dom'
 
 const Footer = () => (
   <S.Container>
-    <S.Logo src={logo} alt="Logo do efood" />
-    <S.Links>
-      <li>
-        <S.Link>
-          <img src={instagram} alt="Icone instagram" />
-        </S.Link>
-      </li>
-      <li>
-        <S.Link>
-          <img src={facebook} alt="Icone facebook" />
-        </S.Link>
-      </li>
-      <li>
-        <S.Link>
-          <img src={twitter} alt="Icone twitter" />
-        </S.Link>
-      </li>
-    </S.Links>
-    <S.Section>
-      A efood é uma plataforma para divulgação de estabelecimentos, a
-      responsabilidade pela entrega, qualidade dos produtos é toda do
-      estabelecimento contratado.
-    </S.Section>
+    <div className="container">
+      <S.Logo>
+        <Link to="/">
+          <img src={logo} alt="E-food" />
+        </Link>
+      </S.Logo>
+      <S.SocialLinks>
+        <S.SocialIcon href="#" title="Instagram">
+          <img src={instagram} alt="Instagram" />
+        </S.SocialIcon>
+        <S.SocialIcon href="#" title="Facebook">
+          <img src={facebook} alt="Facebook" />
+        </S.SocialIcon>
+        <S.SocialIcon href="#" title="Twitter">
+          <img src={twitter} alt="Twitter" />
+        </S.SocialIcon>
+      </S.SocialLinks>
+      <S.FooterText>
+        A efood é uma plataforma para divulgação de estabelecimentos, a
+        responsabilidade pela entrega, qualidade dos produtos é toda do
+        estabelecimento contratado.
+      </S.FooterText>
+    </div>
   </S.Container>
 )
 

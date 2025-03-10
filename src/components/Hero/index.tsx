@@ -1,11 +1,21 @@
-import { HeroContainer, Slogan, Branding } from './styles'
+import * as S from './styles'
 
-import logo from '../../assets/logo.png'
+type Props = {
+  type: string
+  name: string
+  image: string
+}
 
-const Hero = () => (
-  <HeroContainer>
-    <Branding src={logo} alt="Logo do efood" />
-    <Slogan>Viva experiências gastronômicas no conforto da sua casa</Slogan>
-  </HeroContainer>
-)
+const Hero = ({ type, name, image }: Props) => {
+  return (
+    <S.HeroContainer>
+      <S.HeroBackground style={{ backgroundImage: `url(${image})` }} />
+      <S.HeroContent>
+        <S.RestaurantType>{type}</S.RestaurantType>
+        <S.RestaurantName>{name}</S.RestaurantName>
+      </S.HeroContent>
+    </S.HeroContainer>
+  )
+}
+
 export default Hero

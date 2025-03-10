@@ -1,60 +1,123 @@
 import styled from 'styled-components'
-import fundo from '../../assets/fundoHero.png'
-import { breakpoints, cores } from '../../styles'
+import { Colors, breakpoints } from '../../styles'
+import backgroundVector from '../../assets/images/backgroundVector.png'
 
-export const HeaderStyle = styled.header`
-  background-image: url(${fundo});
-
-  align-items: center;
-  text-align: center;
-
-  .container {
-    padding: 39px 0;
-    max-width: 1024px;
-    display: flex;
-    justify-content: space-between;
-    margin: 0 auto;
-
-    @media (max-width: ${breakpoints.mobile}) {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-    @media (max-width: ${breakpoints.desktop}) {
-      padding: 39px 10px;
-    }
-  }
-`
-export const Branding = styled.a`
-  max-width: 126px;
+export const HeaderBar = styled.header`
+  background: ${Colors.headerBackground};
+  height: 186px;
   width: 100%;
-  height: 60px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url(${backgroundVector});
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    height: 140px;
+  }
+
   @media (max-width: ${breakpoints.mobile}) {
-    margin: 15px;
+    height: 120px;
   }
 `
-export const LinkRestaurantes = styled.a`
+
+export const HeaderContent = styled.div`
+  width: 100%;
+  max-width: ${breakpoints.desktop};
+  position: relative;
+  height: 100%;
+  padding: 0 16px;
+
+  @media (max-width: ${breakpoints.desktop}) {
+    max-width: 100%;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    max-width: 100%;
+  }
+`
+
+export const Links = styled.ul`
+  display: flex;
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  @media (max-width: ${breakpoints.desktop}) {
+    left: 16px;
+  }
+
+  @media (max-width: ${breakpoints.mobile}) {
+    display: none;
+  }
+`
+
+export const LinkItem = styled.li`
+  a {
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 21px;
+    text-align: left;
+    color: ${Colors.mainPink};
+    text-decoration: none;
+
+    @media (max-width: ${breakpoints.tablet}) {
+      font-size: 16px;
+    }
+  }
+`
+
+export const LinkCart = styled.a`
+  position: absolute;
+  right: 16px;
+  text-align: right;
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: 900;
   font-size: 18px;
-  font-weight: bold;
+  line-height: 21px;
+  color: ${Colors.mainPink};
   text-decoration: none;
-  color: ${cores.vermelho};
-  margin-top: 39px;
-  img {
-    margin-right: 8px;
+  white-space: nowrap;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    font-size: 16px;
   }
+
   @media (max-width: ${breakpoints.mobile}) {
-    margin-top: 0;
+    right: 5%;
+    font-size: 14px;
   }
 `
 
-export const TextCart = styled.p`
-  font-size: 18px;
-  font-weight: bold;
-  margin-top: 39px;
-  cursor: pointer;
+export const LogoContainer = styled.div`
+  position: absolute;
+  width: 125px;
+  height: 57.5px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: ${Colors.mainPink};
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    width: 100px;
+    height: 46px;
+  }
 
   @media (max-width: ${breakpoints.mobile}) {
-    margin-top: 0;
+    width: 90px;
+    height: 41px;
+    left: 5%;
+    transform: translateY(-50%);
   }
 `
