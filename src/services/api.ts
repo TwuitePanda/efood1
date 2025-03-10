@@ -1,15 +1,22 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { Restaurant } from '../models/Menu'
+import { Opçao, PurchasePayload } from '../types'
+
+type PurchaseResponse = {
+  orderId: string
+}
 
 export const api = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://fake-api-tau.vercel.app/api/efood'
   }),
   endpoints: (builder) => ({
-    getRestaurants: builder.query<Restaurant[], void>({
+    getHomePage: builder.query<Opçao[], void>({
       query: () => 'restaurantes'
     }),
-    checkout: builder.mutation<CheckoutResponse, CheckoutPayload>({
+    getFeatureEfood: builder.query<Opçao, string>({
+      query: (id) => `restaurantes/${id}`
+    }),
+    purchase: builder.mutation<PurchaseResponse, PurchasePayload>({
       query: (body) => ({
         url: 'checkout',
         method: 'POST',
@@ -19,6 +26,9 @@ export const api = createApi({
   })
 })
 
-export const { useGetRestaurantsQuery, useCheckoutMutation } = api
-
+export const {
+  useGetFeatureEfoodQuery,
+  useGetHomePageQuery,
+  usePurchaseMutation
+} = api
 export default api

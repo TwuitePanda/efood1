@@ -1,208 +1,46 @@
-# Max React Template - Rapid, Scalable Web Development Starter
+# Getting Started with Create React App
 
-A responsive food e-commerce platform built with React, Redux, TypeScript, Styled Components, Fake Store API. This application allows users to browse restaurants, view menu items, add items to the cart, and complete the checkout process.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## 🖼️ Project Demo
+## Available Scripts
 
-![Project Demo](public/demo.png)
+In the project directory, you can run:
 
-## Live Demo On Vercel
+### `npm start`
 
-Check out the live demo: [Food E-commerce](https://food-ecommerce-six.vercel.app/)
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-## Demo Preview
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-![Demo GIF](public/FoodEcommerceDemo.gif)
+### `npm test`
 
-## Features
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-- Restaurant listing and filtering
-- Detailed restaurant view with menu items
-- Add to cart functionality with quantity control
-- Smooth cart animations
-- Multi-step checkout process:
-  - Address information
-  - Payment details (with card validation)
-  - Order confirmation
-- Responsive design for all devices
-- State management with Redux
-- Form validation
+### `npm run build`
 
-## Technologies Used
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-- React.js
-- TypeScript
-- Redux & Redux Toolkit
-- Styled Components
-- React Router
-- Formik
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-## How to Run
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-1. Clone this repository
-2. Install dependencies with `npm install`
-3. Run the development server with `npm start`
-4. Access the application at `http://localhost:3000`
+### `npm run eject`
 
-## 🌟 Why Use This Template?
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-### 🚀 Accelerate Your Development
-This template is designed to jumpstart your React projects with a robust, production-ready foundation. Save hours of initial setup and focus on building your unique features.
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-### 🛡️ Best Practices Included
-- Preconfigured with TypeScript for type safety
-- Integrated styling with Styled Components
-- Comprehensive routing setup
-- Optimized development workflow
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-### 🔧 Fully Customizable
-- Modular architecture
-- Easy to extend and modify
-- Follows modern React development standards
-
-### 💡 Key Advantages
-- **Quick Setup**: Zero-configuration start
-- **Performance Optimized**: Lightweight and fast
-- **Scalable Structure**: Easily grow your application
-- **Modern Tech Stack**: Leveraging latest React and TypeScript features
-
-## 🚀 Quick Start
-
-### Prerequisites
-- Node.js (v18 or later)
-- npm (v9 or later)
-
-### Installation
-
-1. Clone the repository
-
-`git clone https://github.com/maxh33/food-ecommerce.git`
-
-
-`cd food-ecommerce`
-
-2. Install dependencies
-
-
-`npm install`
-
-3. Start the development server
-
-
-`npm start`
-
-
-## 🛠️ Technologies & Stack
-
-### Core Technologies
-- **React** (v19.0.0): JavaScript library for building user interfaces
-- **TypeScript**: Adds static typing to JavaScript
-- **React Router**: Routing library for React applications
-
-### Styling
-- **Styled Components**: CSS-in-JS library for component-level styling
-
-### Development Tools
-- **Create React App**: Toolchain for React project setup
-- **ESLint**: Code linting
-- **Prettier**: Code formatting
-
-### Additional Libraries
-- **Web Vitals**: Performance measurement
-- **React Testing Library**: Testing utilities
-
-## Additional Images
-
-
-![Details on Tablet](public/detailsTablet.png)
-![Details on Mobile](public/deatilsMobile.png)
-![Modal on Tablet](public/tabletModal.png)
-![Cart on Tablet](public/tabletCart.png)
-![Cart Conclusion Animation](public/conclusion.png)
-
-## 🔧 Customization Guide
-
-### Adapting the Template
-
-1. **Styling**
-   - Modify `src/styles.ts` to change global styles and color palette
-   - Update component-specific styles in respective `styles.ts` files
-
-2. **Components**
-   - Replace placeholder components in `src/components/`
-   - Add new components as needed
-
-3. **Routes**
-   - Modify `src/routes.tsx` to add/remove pages
-   - Create new page components in `src/pages/`
-
-4. **Assets**
-   - Replace images in `src/assets/images/`
-   - Update logos, icons, and banner images
-
-## 📂 Project Structure
-
-### Root Directory
-- `src/` - Source code directory
-
-### Assets
-- `assets/`
-  - `images/` - Image resources
-
-### Components
-- `components/`
-  - `Banner/` - Banner component
-  - `Button/` - Button component
-  - `Footer/` - Footer component
-  - `Header/` - Header component
-
-### Pages
-- `pages/`
-  - `Home/` - Home page
-  - `Others/` - Other pages
-
-### Core Files
-- `styles.ts` - Global styles
-- `App.tsx` - Main application component
-- `index.tsx` - Entry point
-- `routes.tsx` - Route definitions
-
-
-## Like it? Star the project and Follow me!
-
-LinkedIn: [https://www.linkedin.com/in/maxhaider/](https://www.linkedin.com/in/maxhaider/)
-
-
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-
-

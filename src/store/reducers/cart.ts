@@ -1,62 +1,46 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { MenuItem } from '../../models/Menu'
+import { CardapioItem } from '../../types'
+
+export interface CartItem {
+  id: number
+  foto: string
+  descricao: string
+  preco: number
+  nome: string
+  porcao: string
+}
 
 type CartState = {
-  items: MenuItem[]
+  items: CardapioItem[]
   isOpen: boolean
-  isCheckoutOpen: boolean
 }
 
 const initialState: CartState = {
   items: [],
-  isOpen: false,
-  isCheckoutOpen: false
+  isOpen: false
 }
 
 const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    addItem: (state, action: PayloadAction<MenuItem>) => {
+    add: (state, action: PayloadAction<CardapioItem>) => {
       state.items.push(action.payload)
     },
-    removeItem: (state, action: PayloadAction<number>) => {
+    remove: (state, action: PayloadAction<number>) => {
       state.items = state.items.filter((item) => item.id !== action.payload)
     },
-    closeCart: (state) => {
+    open: (state) => {
+      state.isOpen = true
+    },
+    close: (state) => {
       state.isOpen = false
-      state.isCheckoutOpen = false
-    },
-    openCart: (state) => {
-      state.isOpen = true
-      state.isCheckoutOpen = false
-    },
-    openCheckout: (state) => {
-      state.isOpen = true
-      state.isCheckoutOpen = true
     },
     clear: (state) => {
       state.items = []
     }
-  },
-  extraReducers: (builder) => {
-    // Handle the clearCart action if it's still being used elsewhere
-    builder.addCase('cart/clearCart', (state) => {
-      state.items = []
-    })
   }
 })
 
-export const { addItem, removeItem, closeCart, openCart, openCheckout, clear } =
-  cartSlice.actions
-
-export const getTotalPrice = (items: MenuItem[]) => {
-  return items
-    .reduce((total, item) => total + parseFloat(item.preco.toString()), 0)
-    .toFixed(2)
-}
-
-// Keep this export for backward compatibility
-export const clearCart = { type: 'cart/clearCart' }
-
+export const { add, open, close, remove, clear } = cartSlice.actions
 export default cartSlice.reducer

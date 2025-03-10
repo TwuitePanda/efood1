@@ -1,48 +1,52 @@
-declare interface DeliveryFormValues {
-  receiver: string
-  address: string
-  city: string
-  zipCode: string
-  number: string
-  complement?: string
+export type product = {
+  id: number
+  price: number
 }
 
-declare interface PaymentFormValues {
-  cardName: string
-  cardNumber: string
-  cardCode: string
-  expirationMonth: string
-  expirationYear: string
-}
-
-declare interface CheckoutPayload {
-  products: {
-    id: number
-    price: number
-  }[]
+export type PurchasePayload = {
+  products: product[]
   delivery: {
-    receiver: string
-    address: {
-      description: string
+    name: string
+    local: {
+      address: string
       city: string
-      zipCode: string
-      number: number
+      cep: string
+      number: string
       complement?: string
     }
   }
   payment: {
     card: {
-      name: string
-      number: string
-      code: number
-      expires: {
-        month: number
-        year: number
+      nameCard: string
+      numberCard?: string
+      codeCard?: number
+      validation?: {
+        monthCard: number
+        yearCard: number
       }
     }
   }
 }
 
-declare interface CheckoutResponse {
-  orderId: string
+export type Opçao = {
+  find(arg0: (item: { id: string | undefined }) => boolean): Opçao
+  id: number
+  titulo: string
+  destacado: boolean
+  tipo: string
+  avaliacao: string
+  descricao: string
+  capa: string
+  cardapio: CardapioItem[]
+}
+
+export type CardapioItem = {
+  number: unknown
+  name: unknown
+  foto: string
+  preco: number
+  id: number
+  nome: string
+  descricao: string
+  porcao: string
 }

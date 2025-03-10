@@ -1,39 +1,14 @@
-import { Link } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
+import Fundo from '../../assets/images/fundo.png'
+import Logo from '../../assets/images/logo.png'
+import { Text, Home, LogoImage } from './styles'
 
-import { RootState } from '../../store'
-import { openCart } from '../../store/reducers/cart'
-import logo from '../../assets/images/logo.svg'
-import * as S from './styles'
-
-const Header = () => {
-  const { items } = useSelector((state: RootState) => state.cart)
-  const dispatch = useDispatch()
-
-  const handleCartClick = (e: React.MouseEvent) => {
-    e.preventDefault()
-    dispatch(openCart())
-  }
-
-  return (
-    <S.HeaderBar>
-      <S.HeaderContent>
-        <S.Links>
-          <S.LinkItem>
-            <Link to="/">Restaurantes</Link>
-          </S.LinkItem>
-        </S.Links>
-        <S.LogoContainer>
-          <Link to="/">
-            <img className="logo" src={logo} alt="Logo" />
-          </Link>
-        </S.LogoContainer>
-        <S.LinkCart href="#" onClick={handleCartClick}>
-          {items.length} produto(s) no carrinho
-        </S.LinkCart>
-      </S.HeaderContent>
-    </S.HeaderBar>
-  )
-}
+const Header = () => (
+  <Home style={{ backgroundImage: `url(${Fundo})` }}>
+    <Text>
+      <LogoImage src={Logo} alt="Logotipo" />
+      <p>Viva experiências gastronômicas no conforto da sua casa</p>
+    </Text>
+  </Home>
+)
 
 export default Header
