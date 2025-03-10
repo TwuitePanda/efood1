@@ -1,14 +1,20 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import './styles'
-import App from './App'
-import reportWebVitals from './reportWebVitals'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './styles.css'; // Certifique-se de que o arquivo existe com esse nome exato.
+import App from './App';
+import reportWebVitals from './reportWebVitals';
 
-const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-)
+const rootElement = document.getElementById('root');
 
-reportWebVitals()
+if (rootElement) {
+  const root = ReactDOM.createRoot(rootElement);
+  root.render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  );
+
+  reportWebVitals();
+} else {
+  console.error('Elemento com id "root" não encontrado.');
+}
