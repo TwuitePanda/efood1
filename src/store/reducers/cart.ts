@@ -1,39 +1,31 @@
+//Configuração de reducer do carrinho
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
+export interface CartItem {
+  id: number
+  foto: string
+  descricao: string
+  preco: number
+  nome: string
+  porcao: string
+}
+
 type CartState = {
-  items: Restaurant[]
-  pedido: Pedido[]
+  items: CartItem[]
   isOpen: boolean
-  isAddress: boolean
-  isPayment: boolean
-  isConfirmed: boolean
-  isCart: boolean
 }
 
 const initialState: CartState = {
   items: [],
-  isOpen: false,
-  isAddress: false,
-  isPayment: false,
-  isConfirmed: false,
-  isCart: true,
-  pedido: []
+  isOpen: false
 }
 
 const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    addItem: (state, action: PayloadAction<Pedido>) => {
-      const p = state.pedido.find((pe) => pe.id === action.payload.id)
-      if (!p) {
-        state.pedido.push(action.payload)
-      } else {
-        alert('Pedido já está no carrinho')
-      }
-    },
-    removeItem: (state, action: PayloadAction<number>) => {
-      state.pedido = state.pedido.filter((p) => p.id !== action.payload)
+    add: (state, action: PayloadAction<CartItem>) => {
+      state.items.push(action.payload)
     },
     open: (state) => {
       state.isOpen = true
@@ -41,50 +33,15 @@ const cartSlice = createSlice({
     close: (state) => {
       state.isOpen = false
     },
-    closeAndFinish: (state) => {
-      state.isOpen = false
-      state.isCart = true
-      state.isConfirmed = false
-      state.isAddress = false
-      state.isPayment = false
-      state.pedido = []
+    remove: (state, action: PayloadAction<number>) => {
+      state.items = state.items.filter((item) => item.id !== action.payload)
     },
-    startCheckout: (state) => {
-      state.isCart = false
-      state.isConfirmed = false
-      state.isAddress = true
-      state.isPayment = false
-    },
-    payment: (state) => {
-      state.isConfirmed = false
-      state.isAddress = false
-      state.isPayment = true
-      state.isCart = false
-    },
-    confirmed: (state) => {
-      state.isConfirmed = true
-      state.isAddress = false
-      state.isPayment = false
-      state.isCart = false
-    },
-    backtoCart: (state) => {
-      state.isAddress = false
-      state.isPayment = false
-      state.isConfirmed = false
-      state.isCart = true
+    clear: (state) => {
+      state.items = []
     }
   }
 })
 
-export const {
-  open,
-  close,
-  addItem,
-  removeItem,
-  startCheckout,
-  payment,
-  confirmed,
-  backtoCart,
-  closeAndFinish
-} = cartSlice.actions
+//Exportações
+export const { add, open, close, remove, clear } = cartSlice.actions
 export default cartSlice.reducer
